@@ -20,17 +20,10 @@ response = requests.get(URL, headers=headers)
 page = response.text
 #print(page)
 
-soup = BeautifulSoup(page, 'lxml')
-# price_section = soup.find("div", class_="a-section a-spacing-small")
-# price = price_section.find("span", class_="a-price a-text-price a-size-medium apexPriceToPay")
-# real_price = price.find("span")
-# gram_price = real_price.getText()
-#
-# new_price = gram_price.split("$")[1]
-# price_as_float = float(new_price)
-# print(price_as_float)
 
-########ILI SEDAM PUTA JEDNOSTAVNIJE!!!!!!!!!!!!!!!!##################
+soup = BeautifulSoup(page, 'lxml')
+
+
 product_price = float(soup.find(name="span", class_="a-offscreen").getText().strip("$"))
 
 if product_price < 100:
